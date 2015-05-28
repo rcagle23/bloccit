@@ -1,5 +1,7 @@
  require 'faker'
- 
+
+Post.find_or_create_by(title: "Custom Post")
+
  # Create Posts
  50.times do
    Post.create!(
@@ -8,7 +10,8 @@
    )
  end
  posts = Post.all
- 
+
+
  # Create Comments
  100.times do
    Comment.create!(
