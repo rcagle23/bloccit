@@ -15,12 +15,12 @@ ActiveRecord::Schema.define(version: 20150629133836) do
 
   create_table "answers", force: true do |t|
     t.text     "body"
-    t.integer  "questions_id"
+    t.integer  "question_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "answers", ["questions_id"], name: "index_answers_on_questions_id"
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
 
   create_table "comments", force: true do |t|
     t.text     "body"
