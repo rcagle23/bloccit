@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  # Everything should be up to date
    config.action_mailer.default_url_options = { host: 'https://radiant-reaches-6831.herokuapp.com/' }
 
   # Code is not reloaded between requests.
