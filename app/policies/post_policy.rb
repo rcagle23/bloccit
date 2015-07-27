@@ -14,8 +14,11 @@ class PostPolicy < ApplicationPolicy
         def resolve
             if user.present? && (user.admin? || user.moderator?)
                 scope.all
+            elsif user.present?
+                scope.where(:user => user)
             else
-                scope.where(:published => true)
+                # no user signed in
+                scope.none
             end
         end
     end
