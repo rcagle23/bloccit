@@ -14,11 +14,11 @@
     
     <h4>Comments:</h4>
     <p><%= render @comments %></p>
-      <% if current_user %>
-        <%# render partial: "comments/form", locals: {post: @post, comment: @comment} %>
-      <% else %>
+     <% if current_user.nil? %>
         <p>Please <%= link_to "Sign In", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %> to add a comment.</p>
-      <% end %>
+      <% else %>
+        <%= render partial: "comments/form", locals: {topic: @topic, post: @post, comment: @post.comments.new} %>
+     <% end %>
     </div>
   
   <div class="col-md-2">
