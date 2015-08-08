@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'bootstrap-sass'
 
-gem 'rails', '4.1.0'
+gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
  group :production do
    gem 'pg'
@@ -13,6 +13,7 @@ gem 'rails', '4.1.0'
    gem 'sqlite3'
    gem 'binding_of_caller'
    gem 'better_errors'
+   gem 'web-console', '~> 2.0'
  end
  
  group :development, :test do

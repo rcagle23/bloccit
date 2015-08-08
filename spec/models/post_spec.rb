@@ -4,7 +4,9 @@ describe Post do
 describe "vote methods" do
 
  before do
-   @post = Post.create!(title: 'post title', body: 'post body needs to be long enough')
+    @user = User.create!(email: 'usernamehere@example.com', password: 'helloworld')
+    @topic = Topic.create!(name: 'Topics Title')
+    @post = Post.create!(title: 'post title', body: 'post body needs to be at least 20 characters', topic: @topic, user: @user)
    3.times { @post.votes.create(value: 1) }
    2.times { @post.votes.create(value: -1) }
  end

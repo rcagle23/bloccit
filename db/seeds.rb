@@ -23,12 +23,15 @@
  
  # Create Posts
  50.times do
-   Post.create!(
+   post = Post.create!(
      user: users.sample,
      topic: topics.sample,
      title:  Faker::Lorem.sentence,
      body:   Faker::Lorem.paragraph
    )
+   
+   post.update_attributes!(created_at: rand(10.minutes .. 1.year).ago)
+   post.update_rank
  end
  posts = Post.all
  
@@ -80,5 +83,5 @@
  puts "Seed finished"
  puts "#{Post.count} posts created"
  puts "#{Topic.count} topics created"
-  puts "#{User.count} users created"
-   puts "#{Comment.count} comments created"
+ puts "#{User.count} users created"
+ puts "#{Comment.count} comments created"

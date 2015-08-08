@@ -14,21 +14,21 @@ describe 'Vote' do
         # your expectations here
         vote = @post.votes.create(value: -1)
         expect(vote.value).to eq(-1)
-        expect(vote.valid?).to_be true
+        expect(vote.valid?).to eq(true)
       end
       
        it "only allows -1 or 1 as values" do
         # your expectations here
         vote = @post.votes.create(value: 1)
         expect(vote.value).to eq(1)
-        expect(vote.valid?).to_be true
+        expect(vote.valid?).to eq(true)
 
       end
       
       it "only should reject values other than -1 or 1" do
         # your expectations here
         vote = @post.votes.create(value: 4)
-        expect(vote.valid?).to_be false
+        expect(vote.valid?).to eq(false)
       end
     end
     
