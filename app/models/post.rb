@@ -25,6 +25,9 @@ class Post < ActiveRecord::Base
      update_attribute(:rank, new_rank)
   end
   
+  def save_with_initial_vote
+  end
+  
   default_scope { order('rank DESC') }
   
   validates :title, length: { minimum: 5 }, presence: true
