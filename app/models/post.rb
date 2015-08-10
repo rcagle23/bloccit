@@ -19,13 +19,17 @@ class Post < ActiveRecord::Base
   end
   
   def update_rank
-     age_in_days = (created_at - Time.new(1970,1,1)) / (60 * 60 * 24) 
+     age_in_days = (created_at - Time.new(1970,1,1)) / (60 * 60 * 24) # 1 day in seconds
      new_rank = points + age_in_days
- 
+
      update_attribute(:rank, new_rank)
   end
   
   def save_with_initial_vote
+    ActiveRecord::Base.transaction do
+      save
+      create_vote
+    end
   end
   
   default_scope { order('rank DESC') }
