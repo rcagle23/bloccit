@@ -5,6 +5,9 @@ gem 'bootstrap-sass'
 gem 'newrelic_rpm'
 
 gem 'rails', '4.2.0'
+
+gem 'puma', group: [:production, :development]
+
 # Use sqlite3 as the database for Active Record
  group :production do
    gem 'pg'
