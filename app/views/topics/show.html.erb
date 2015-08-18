@@ -8,7 +8,7 @@
    <div class="col-md-8">
      
      <p class="lead"><%= @topic.description %></p>
-     <% render @posts %>
+     <%= render @posts %>
      <%= will_paginate @posts %>
    </div>
    <div class="col-md-4">
