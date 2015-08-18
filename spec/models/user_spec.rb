@@ -6,7 +6,7 @@ describe User do
     describe ".top_rated" do
  
      before do
-       @user1 = create(:user)
+       @user1 = create(:user_with_post_and_comment)
        @user2 = create(:user_with_post_and_comment)
      end
  

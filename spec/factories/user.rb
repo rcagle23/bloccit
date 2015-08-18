@@ -8,12 +8,9 @@
      
      
      factory :user_with_post_and_comment do
-       transient do
-          user true
-       end
-      
-        after(:build) do |user, evaluator|
-          user.name.upcase! if evaluator.upcased
+        after(:build) do |user| 
+         post = create(:post, user: user)
+         create(:comment, user: user, post: post)
         end
      end
    end
