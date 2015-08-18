@@ -8,9 +8,6 @@ describe User do
      before do
        @user1 = create(:user_with_post_and_comment)
        @user2 = create(:user_with_post_and_comment)
-       @post = associated_post
-       @comment = Comment.new(body: 'My comment is really great', post: @post, user: @other_user)
-       2.times { @user2.comment.create(2) }
      end
  
      it "returns users ordered by comments + posts" do
