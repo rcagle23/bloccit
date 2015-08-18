@@ -8,10 +8,13 @@ describe User do
      before do
        @user1 = create(:user_with_post_and_comment)
        @user2 = create(:user_with_post_and_comment)
+       @post = associated_post
+       @comment = Comment.new(body: 'My comment is really great', post: @post, user: @other_user)
+       2.times { @user2.comment.create(2) }
      end
  
      it "returns users ordered by comments + posts" do
-       expect( User.top_rated ).to eq([@user2, @user1])
+       expect( User.top_rated ).to eq([@user1, @user2])
      end
  
      it "stores a `posts_count` on user" do
