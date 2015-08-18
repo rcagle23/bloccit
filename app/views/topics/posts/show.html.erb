@@ -28,11 +28,15 @@
     
     
     <h4>Comments:</h4>
-    <%= render partial: 'comments/comment', collection: @comments %>
+    <div class='js-comments'>
+      <%= render partial: 'comments/comment', collection: @comments %>
+    </div>
      <% if current_user.nil? %>
         <p>Please <%= link_to "Sign In", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %> to add a comment.</p>
       <% else %>
+      <div class='new-comment'>
         <%= render partial: "comments/form", locals: {post: @post, comment: @post.comments.new} %>
+      </div>
      <% end %>
     </div>
   
