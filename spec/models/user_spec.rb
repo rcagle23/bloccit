@@ -7,12 +7,7 @@ describe User do
  
      before do
        @user1 = create(:user)
-       post = create(:post, user: @user1)
-       create(:comment, user: @user1, post: post)
- 
-       @user2 = create(:user)
-       post = create(:post, user: @user2)
-       2.times { create(:comment, user: @user2, post: post) }
+       @user2 = create(:user_with_post_and_comment)
      end
  
      it "returns users ordered by comments + posts" do
