@@ -19,6 +19,7 @@ gem 'rails', '4.2.0'
  group :development, :test do
    gem 'rspec-rails', '~> 3.0'
    gem 'capybara'
+   gem 'factory_girl_rails', '~> 4.0'
  end
 
 gem 'sass-rails', '~> 4.0.3'
