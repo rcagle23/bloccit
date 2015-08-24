@@ -15,6 +15,7 @@ class SummariesController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:post_id])
     @summary = Summary.new(params.require(:summary).permit(:description))
+    @summary.post = @post
     
     if @summary.save
       flash[:notice] = "Summary saved."
